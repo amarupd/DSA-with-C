@@ -1,11 +1,12 @@
 #include <stdio.h>
-#include<stdlib.h>
-struct node{
-  struct node* left;
+#include <stdlib.h>
+struct node
+{
+  struct node *left;
   int data;
-  struct node* right;
+  struct node *right;
 };
-struct node* root=NULL;
+struct node *root = NULL;
 int len;
 void append();
 void addatbegin();
@@ -16,7 +17,7 @@ void delete(void);
 void main()
 {
   int ch;
-  while(1)
+  while (1)
   {
     printf("single linked list operation\n");
     printf("1. append\n");
@@ -27,163 +28,171 @@ void main()
     printf("6. delete\n");
     printf("7. quit\n");
     printf("Enter your choice\n");
-    scanf("%d",&ch);
-    switch(ch)
+    scanf("%d", &ch);
+    switch (ch)
     {
-      case 1: append();
+    case 1:
+      append();
       break;
-      case 2: addatbegin();
+    case 2:
+      addatbegin();
       break;
-      case 3: addatafter();
+    case 3:
+      addatafter();
       break;
-      case 4: len=length();
-              printf("number of nodes is %d\n\n",len);
+    case 4:
+      len = length();
+      printf("number of nodes is %d\n\n", len);
       break;
-      case 5: display();
+    case 5:
+      display();
       break;
-      case 6: delete();
+    case 6:
+      delete ();
       break;
-      case 7: exit(1);
-      default:printf("invalid entry\n\n");
+    case 7:
+      exit(1);
+    default:
+      printf("invalid entry\n\n");
     }
   }
 }
 void append()
 {
-  struct node* temp,*p;
-  p=root;
-  temp=(struct node*)malloc(sizeof(struct node));
+  struct node *temp, *p;
+  p = root;
+  temp = (struct node *)malloc(sizeof(struct node));
   printf("enter the node\n");
-  scanf("%d",&temp->data);
-  temp->right=NULL;
-  temp->left=NULL;
-  if(root==NULL)
+  scanf("%d", &temp->data);
+  temp->right = NULL;
+  temp->left = NULL;
+  if (root == NULL)
   {
-    root=temp;
+    root = temp;
   }
   else
   {
-      while(p->right!=NULL)
-      {
-        p=p->right;
-      }
-      p->right=temp;
-      temp->left=p;
-      temp->right=NULL;
+    while (p->right != NULL)
+    {
+      p = p->right;
+    }
+    p->right = temp;
+    temp->left = p;
+    temp->right = NULL;
   }
 }
 int length()
 {
-  int count=0;
-  struct node* p=root;
-  while(p!=NULL)
+  int count = 0;
+  struct node *p = root;
+  while (p != NULL)
   {
     count++;
-    p=p->right;
+    p = p->right;
   }
   return count;
 }
 void display()
 {
-  struct node* temp;
-  if(root==NULL)
+  struct node *temp;
+  if (root == NULL)
   {
     printf("no nodes are present");
   }
   else
   {
-    temp=root;
-    while(temp!=NULL)
+    temp = root;
+    while (temp != NULL)
     {
-      printf("%d -> ",temp->data);
-      temp=temp->right;
+      printf("%d -> ", temp->data);
+      temp = temp->right;
     }
   }
 }
 void delete()
 {
-  struct node* temp;
-  int loc,i=1;
+  struct node *temp;
+  int loc, i = 1;
   printf("enter the location to delete");
-  scanf("%d",&loc);
-  if(loc>length())
+  scanf("%d", &loc);
+  if (loc > length())
   {
     printf("invalid location");
   }
-  else if(loc==1)
+  else if (loc == 1)
   {
-    temp=root;
-    root=temp->right;
-    temp->right=NULL;
-    root->left=NULL;
+    temp = root;
+    root = temp->right;
+    temp->right = NULL;
+    root->left = NULL;
     free(temp);
   }
   else
   {
-    struct node * p,*q;
-    temp=root;
-    while(i<loc-1)
+    struct node *p, *q;
+    temp = root;
+    while (i < loc - 1)
     {
-      temp=temp->right;
+      temp = temp->right;
       i++;
     }
-    p=temp->right;
-    temp->right=p->right;
-    p->right->left=temp;
+    p = temp->right;
+    temp->right = p->right;
+    p->right->left = temp;
     free(p);
   }
 }
 void addatafter()
 {
-  struct node* temp,*p;
-  p=root;
-  int loc,len,i=1;
-  len=length();
+  struct node *temp, *p;
+  p = root;
+  int loc, len, i = 1;
+  len = length();
   printf("enter the location you want to add data\n");
-  scanf("%d",&loc);
-  if(loc>len)
+  scanf("%d", &loc);
+  if (loc > len)
   {
     printf("invalid location\n");
   }
-  else if(loc==len)
+  else if (loc == len)
   {
     append();
   }
   else
   {
-    temp=(struct node*)malloc(sizeof(struct node));
+    temp = (struct node *)malloc(sizeof(struct node));
     printf("enter the data\n");
-    scanf("%d",&temp->data);
-    temp->left=NULL;
-    temp->right=NULL;
-    while(i<loc)
+    scanf("%d", &temp->data);
+    temp->left = NULL;
+    temp->right = NULL;
+    while (i < loc)
     {
-      p=p->right;
+      p = p->right;
       i++;
     }
-    temp->right=p->right;
-    p->right->left=temp;
-    temp->left=p;
-    p->right=temp;
+    temp->right = p->right;
+    p->right->left = temp;
+    temp->left = p;
+    p->right = temp;
   }
 }
 void addatbegin()
 {
-  struct node* temp,*p;
-  p=root;
-  temp=(struct node*)malloc(sizeof(struct node));
+  struct node *temp, *p;
+  p = root;
+  temp = (struct node *)malloc(sizeof(struct node));
   printf("enter the node data\n");
-  scanf("%d",&temp->data);
-  temp->right=NULL;
-  temp->left=NULL;
-  if(root==NULL)
+  scanf("%d", &temp->data);
+  temp->right = NULL;
+  temp->left = NULL;
+  if (root == NULL)
   {
-    root=temp;
+    root = temp;
   }
   else
   {
-    p->left=temp;
-    temp->right=p;
-    root=temp;
+    p->left = temp;
+    temp->right = p;
+    root = temp;
   }
 }

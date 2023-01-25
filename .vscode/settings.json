@@ -4,6 +4,8 @@
         "BFS.C": "cpp",
         "CONCATENATE.C": "cpp",
         "COPYSTRING.C": "cpp",
-        "MATRIX3X3.C": "cpp"
+        "MATRIX3X3.C": "cpp",
+        "MERGEANDHEAP.C": "cpp",
+        "QUEUE_STACK.C": "cpp"
     }
 }

@@ -5,7 +5,7 @@ struct node
 {
     int data;
     struct node *link;
-}*front, *rear;
+} *front, *rear;
 void insert();
 void delete();
 void queue_size();
@@ -14,7 +14,7 @@ void first_element();
 void main()
 {
     int choice, value;
-    while(1)
+    while (1)
     {
         printf("enter the choice \n");
         printf("1 : Insert element\n");
@@ -23,13 +23,13 @@ void main()
         printf("5 : Total number of entries in the queue\n");
         printf("6 : Exit\n");
         scanf("%d", &choice);
-        switch (choice)    // menu driven program
+        switch (choice) // menu driven program
         {
         case 1:
             insert();
             break;
         case 2:
-            delete();
+            delete ();
             break;
         case 3:
             check();
@@ -51,11 +51,11 @@ void main()
 void insert()
 {
     struct node *temp;
-    temp = (struct node*)malloc(sizeof(struct node));
+    temp = (struct node *)malloc(sizeof(struct node));
     printf("Enter value to be inserted \n");
     scanf("%d", &temp->data);
     temp->link = NULL;
-    if (rear  ==  NULL)
+    if (rear == NULL)
     {
         front = rear = temp;
     }
@@ -104,7 +104,7 @@ void queue_size()
 
     temp = front;
     int count = 0;
-    if (front  ==  NULL)
+    if (front == NULL)
     {
         printf(" queue empty \n");
     }
@@ -114,5 +114,5 @@ void queue_size()
         temp = temp->link;
         count++;
     }
-    printf("size of queue is %d \n",count);
+    printf("size of queue is %d \n", count);
 }

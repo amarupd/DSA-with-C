@@ -1,9 +1,9 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 #define CAPACITY 10
 int queue_arr[CAPACITY];
-int rear=-1;
-int front=-1;
+int rear = -1;
+int front = -1;
 void insert(int item);
 int del();
 int peek();
@@ -12,8 +12,8 @@ int isFull();
 int isEmpty();
 int main()
 {
-        int choice,item;
-        while(1)
+        int choice, item;
+        while (1)
         {
                 printf("\n1.Insert\n");
                 printf("2.Delete\n");
@@ -21,20 +21,20 @@ int main()
                 printf("4.Display all elements of the queue\n");
                 printf("5.Quit\n");
                 printf("\nEnter your choice : ");
-                scanf("%d",&choice);
-                switch(choice)
+                scanf("%d", &choice);
+                switch (choice)
                 {
                 case 1:
                         printf("\nInput the element for adding in queue : ");
-                        scanf("%d",&item);
+                        scanf("%d", &item);
                         insert(item);
                         break;
                 case 2:
-                        item=del();
-                        printf("\nDeleted element is  %d\n",item);
+                        item = del();
+                        printf("\nDeleted element is  %d\n", item);
                         break;
                 case 3:
-                        printf("\nElement at the front is %d\n",peek());
+                        printf("\nElement at the front is %d\n", peek());
                         break;
                 case 4:
                         display();
@@ -49,31 +49,31 @@ int main()
 }
 void insert(int item)
 {
-        if( isFull() )
+        if (isFull())
         {
                 printf("\nQueue Overflow\n");
                 return;
         }
-        if( front == -1 )
-                front=0;
-        rear=rear+1;
-        queue_arr[rear]=item ;
+        if (front == -1)
+                front = 0;
+        rear = rear + 1;
+        queue_arr[rear] = item;
 }
 int del()
 {
         int item;
-        if( isEmpty() )
+        if (isEmpty())
         {
                 printf("\nQueue Underflow\n");
                 exit(1);
         }
-        item=queue_arr[front];
-        front=front+1;
+        item = queue_arr[front];
+        front = front + 1;
         return item;
 }
 int peek()
 {
-        if( isEmpty() )
+        if (isEmpty())
         {
                 printf("\nQueue Underflow\n");
                 exit(1);
@@ -82,14 +82,14 @@ int peek()
 }
 int isEmpty()
 {
-        if( front==-1 || front==rear+1 )
+        if (front == -1 || front == rear + 1)
                 return 1;
         else
                 return 0;
 }
 int isFull()
 {
-        if( rear==CAPACITY-1 )
+        if (rear == CAPACITY - 1)
                 return 1;
         else
                 return 0;
@@ -97,13 +97,13 @@ int isFull()
 void display()
 {
         int i;
-        if ( isEmpty() )
+        if (isEmpty())
         {
                 printf("\nQueue is empty\n");
                 return;
         }
         printf("\nQueue is :\n\n");
-        for(i=front;i<=rear;i++)
-                printf("%d  ",queue_arr[i]);
+        for (i = front; i <= rear; i++)
+                printf("%d  ", queue_arr[i]);
         printf("\n\n");
 }

@@ -21,14 +21,12 @@ public:
 				second = nums[i];
 			}
 		}
-		return first*second;
+		return first * second;
 	}
 };
 
-
-
-
-int main() {
+int main()
+{
 	vector<int> vec;
 	int n;
 	cin >> n;

@@ -1,5 +1,5 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 struct node
 {
     int data;
@@ -12,27 +12,28 @@ void pop();
 int main()
 {
     int n, ch;
-    while(1)
+    while (1)
     {
         printf("\n\nStack Menu\n1. Push \n2. Pop\n3. Display\n4. Exit");
         printf("\nEnter Choice 1-4? : ");
-        scanf("%d",&ch);
+        scanf("%d", &ch);
         switch (ch)
         {
-            case 1:
-                printf("\nEnter number ");
-                scanf("%d", &n);
-                push(n);
-                break;
-            case 2:
-                pop();
-                break;
-            case 3:
-                display();
-                break;
-            case 4:
-                exit(0);
-            default: printf("invalid entry\n\n");
+        case 1:
+            printf("\nEnter number ");
+            scanf("%d", &n);
+            push(n);
+            break;
+        case 2:
+            pop();
+            break;
+        case 3:
+            display();
+            break;
+        case 4:
+            exit(0);
+        default:
+            printf("invalid entry\n\n");
         }
     }
 }

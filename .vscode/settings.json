@@ -6,6 +6,7 @@
         "COPYSTRING.C": "cpp",
         "MATRIX3X3.C": "cpp",
         "MERGEANDHEAP.C": "cpp",
-        "QUEUE_STACK.C": "cpp"
+        "QUEUE_STACK.C": "cpp",
+        "SORTING.C": "cpp"
     }
 }
